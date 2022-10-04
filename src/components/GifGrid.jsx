@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
-import { getGifs } from "../hooks/getGifs";
+import { getGifs } from "../helpers/getGifs";
+import GifItem from "./GifItem";
 
 const GifGrid = ({ category }) => {
 
@@ -19,6 +20,11 @@ const GifGrid = ({ category }) => {
   return (
     <>
       <h2>{category}</h2>
+      <div className="card-grid">
+        {gifs.map((gif) => (
+          <GifItem key={gif.id} {...gif}/>
+        ))}
+      </div>
     </>
   );
 };
